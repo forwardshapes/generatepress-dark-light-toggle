@@ -2,7 +2,7 @@
 
 A simple dark/light mode toggle for the [GeneratePress WordPress theme](https://wordpress.org/themes/generatepress/). This solution adds a centered toggle switch in your footer that persists user preferences across page loads.
 
-**[🔗 See it live on TradingNotions.com](https://tradingnotions.com)**
+**🔗 [See it live on TradingNotions.com](https://tradingnotions.com)**
 
 ## Features
 
