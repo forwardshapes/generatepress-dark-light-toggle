@@ -1,0 +1,120 @@
+/* Light Dark Toggle */
+:root{
+  color-scheme: light dark;
+}
+
+html[data-scheme="light"] { 
+  color-scheme: light; 
+}
+
+html[data-scheme="dark"] { 
+  color-scheme: dark;
+  --contrast: #e8e8e8;
+  --contrast-2: #b4b4b4;
+  --contrast-3: #6e6e80;
+  --base: #1a1a1a;
+  --base-2: #242424;
+  --base-3: #2d2d2d;
+  --accent: #5b9dd9;
+}
+
+html[data-scheme="dark"] blockquote {
+  background: #333333;
+  color: #b4b4b4;
+  border-left: 3px solid #5b9dd9;
+}
+
+html:not([data-scheme]):has(#colormode:checked) { 
+  color-scheme: dark; 
+}
+
+.toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  vertical-align: middle;
+}
+
+.toggle:hover{
+  cursor: pointer;
+}
+
+.toggle input {
+  position: absolute;
+  opacity: 0; 
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+}
+
+.slider{
+  width: 50px;
+  height: 26px;
+  background: #ccc;
+  border-radius: 50px;
+  position: relative;
+  display: inline-block;
+  transition: background .3s ease;
+}
+
+.slider::before{
+  content: "☀️";
+  position: absolute;
+  left: 2px;
+  top: 2px;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  transition: transform .3s ease, background .3s ease, color .3s ease;
+}
+
+.toggle input:checked + .slider{ 
+  background: #333; 
+}
+
+.toggle input:checked + .slider::before{
+  transform: translateX(24px);
+  content: "🌙";
+  background: #000;
+  color: #fff;
+}
+
+.toggle input:focus-visible + .slider{
+  outline: 3px solid CanvasText;
+  outline-offset: 3px;
+  border-radius: 50px;
+}
+
+@media (prefers-reduced-motion: reduce){
+  .slider, .slider::before{ 
+    transition: none; 
+  }
+}
+
+.sr-only{
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.footer-toggle-wrapper {
+  text-align: center;
+  margin-top: 0rem;
+	margin-bottom: 1.5rem;
+}
+
+.toggle-label {
+  font-size: 0.9rem;
+  color: var(--contrast-2, #6e6e80);
+}
